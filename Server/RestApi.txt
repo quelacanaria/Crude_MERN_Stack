@@ -1,0 +1,10 @@
+
+1. Server
+2. Database
+3. Models
+4. Routes
+5. Controller
+
+
+Database -> Server
+Models -> Controller -> Routes -> Server
