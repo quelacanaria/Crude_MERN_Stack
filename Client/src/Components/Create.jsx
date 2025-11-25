@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import { Link } from "react-router-dom";
 function Create(){
+    // const url = 'http://localhost:3000';
+    const url = 'https://my-backend-j2qc.onrender.com';
     const [createdMessage, setCreatedMessage] = useState([]);
     const [showDisplay, setShowDisplay] = useState('hidden');
     const [addProducts, setAddProducts] = useState({
@@ -24,7 +26,7 @@ function Create(){
         
         try{
             event.preventDefault();
-            const response = await axios.post('http://localhost:3000/api/books/add', addProducts);
+            const response = await axios.post(`${url}/api/books/add`, addProducts);
             console.log(response.data);
             setCreatedMessage(response.data);
             show();

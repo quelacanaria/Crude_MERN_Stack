@@ -2,6 +2,8 @@ import React, { useState,useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios'
 function Update(){
+    // const url = 'http://localhost:3000';
+    const url = 'https://my-backend-j2qc.onrender.com';
     const [updatedMessage, setUpdatedMessage] = useState([]);
     const [showDisplay, setShowDisplay] = useState('hidden');
     const navigate = useNavigate();
@@ -11,20 +13,11 @@ function Update(){
         author: '',
         year: ''
     })
-
-    const show = () => {
-        setTimeout(() => {
-                setShowDisplay('block');
-                setTimeout(() => {
-                    setShowDisplay('hidden');
-                }, 3000);
-            }, 0);
-    }
     
     const updated = async() => {
         
         try{
-            const response = await axios.get('http://localhost:3000/api/books/get/' + id);
+            const response = await axios.get(`${url}/api/books/get/` + id);
             console.log('response -> ', response.data.data)
             setUpdate(response.data.data)
         }catch(error){
@@ -35,9 +28,15 @@ function Update(){
     const updatedSubmit = async(event) => {
         try{
             event.preventDefault();
-            const updating = await axios.put(`http://localhost:3000/api/books/update/`+id, update);
+            const updating = await axios.put(`${url}/api/books/update/`+id, update);
             console.log('response -> ', updating.data);
             setUpdatedMessage(updating.data);
+            setTimeout(() => {
+                setShowDisplay('block');
+                setTimeout(() => {
+                    setShowDisplay('hidden');
+                }, 3000);
+            }, 0);
             // navigate('/');
         }catch(error){
             console.log('error -> ', error);
@@ -62,8 +61,8 @@ function Update(){
                         <label className="self-start font-bold" htmlFor="">Author:</label>
                         <input className="h-[50px] bg-white shadow-mine hover:scale-110 active:scale-90 duration-300 p-[10px]" name="author" type="text" value={update.author} onChange={event => setUpdate({...update, author: event.target.value})} required/>
                         <label className="self-start font-bold" htmlFor="">Year Created:</label>
-                        <input className="h-[50px] bg-white shadow-mine hover:scale-110 active:scale-90 duration-300 p-[10px] [&::-webkit-inner-spin-button]:hidden" inputMode="numeric" name="year" type="number" value={update.year} onChange={event => setUpdate({...update, year: event.target.value})} required/>
-                        <button className="mx-1 w-[70px] h-[40px] border-2-transparent rounded-[10px] font-bold text-white bg-blue-500 shadow-mine hover:scale-115 active:scale-90 duration-300 justify-self-center self-center" onClick={() => show()}>Update</button>
+                        <input className="h-[50px] bg-white shadow-mine hover:scale-110 active:scale-90 duration-300 p-[10px] [&::-webkit-inner-spin-button]:hidden" inputMode="numeric" name="year" type="number" min={1000} max={new Date().getFullYear()} value={update.year} onChange={event => setUpdate({...update, year: event.target.value})} required/>
+                        <button className="mx-1 w-[70px] h-[40px] border-2-transparent rounded-[10px] font-bold text-white bg-blue-500 shadow-mine hover:scale-115 active:scale-90 duration-300 justify-self-center self-center">Update</button>
                     </form>
                 </section>
             </main>

@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Link, useParams } from "react-router-dom";
 
 function Home(){
+    // const url = 'http://localhost:3000';
+    const url = 'https://my-backend-j2qc.onrender.com';
     const [deletedMessage, setDeletedMessage] = useState([]);
     const [showDisplay, setShowDisplay] = useState('hidden');
     const [delIndex, setDelIndex] = useState(null);
@@ -21,7 +23,7 @@ function Home(){
 
     const displayBooks = async() => {
         try{
-            const response = await axios.get('http://localhost:3000/api/books/get');
+            const response = await axios.get(`${url}/api/books/get`);
             const getDisplay = response.data.data;
             console.log('response -> ', response.data.data);
             getBooks(getDisplay);
@@ -33,7 +35,7 @@ function Home(){
     const deletingProd = async(index) => {
         try{
             setDelIndex(index);
-            const deleted = await axios.delete('http://localhost:3000/api/books/delete/' + del);
+            const deleted = await axios.delete(`${url}/api/books/delete/` + del);
             console.log(deleted.data);
             setDeletedMessage(deleted.data)
             setIsChange(!isChange);

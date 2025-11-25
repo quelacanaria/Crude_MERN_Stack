@@ -4,11 +4,13 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 function Read(){
+    // const url = 'http://localhost:3000'
+    const url = 'https://my-backend-j2qc.onrender.com';
     const [data, setData] = useState([]);
     const {id} = useParams();
     const getSingleProduct = async() => {
      try{
-            const response = await axios.get('http://localhost:3000/api/books/get/' + id);
+            const response = await axios.get(`${url}/api/books/get/` + id);
             console.log('response -> ', response.data.data);
             setData(response.data.data)
         }catch(error){
