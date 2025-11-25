@@ -12,15 +12,6 @@ function Home(){
     const [del, setDel] = useState([]);
     const [isChange, setIsChange] = useState(false);
 
-    const show = () => {
-        setTimeout(() => {
-                setShowDisplay('block');
-                setTimeout(() => {
-                    setShowDisplay('hidden');
-                }, 3000);
-            }, 0);
-    }
-
     const displayBooks = async() => {
         try{
             const response = await axios.get(`${url}/api/books/get`);
@@ -39,6 +30,12 @@ function Home(){
             console.log(deleted.data);
             setDeletedMessage(deleted.data)
             setIsChange(!isChange);
+            setTimeout(() => {
+                setShowDisplay('block');
+                setTimeout(() => {
+                    setShowDisplay('hidden');
+                }, 3000);
+            }, 0);
         }catch(error){
             console.log('error -> ', error);
         }
@@ -91,7 +88,7 @@ function Home(){
             <main className="w-full h-screen fixed top-[0px] left-[0px] bg-me-100 flex justify-center items-center">
                 <section className="w-[300px] h-[110px] p-[10px] bg-white rounded-2xl overflow-hidden shadow-mine hover:scale-105 duration-300">
                     <strong>Are you sure you want to delete this Book?</strong><br />
-                    <button className="mx-[5px] w-[70px] h-[40px] border-2-transparent rounded-lg font-bold text-white bg-red-500 shadow-mine hover:scale-115 active:scale-90 duration-300" onClick={() => {deletingProd(null); show()}}>Delete</button>
+                    <button className="mx-[5px] w-[70px] h-[40px] border-2-transparent rounded-lg font-bold text-white bg-red-500 shadow-mine hover:scale-115 active:scale-90 duration-300" onClick={() => deletingProd(null)}>Delete</button>
                     <button className="mx-[5px] w-[70px] h-[40px] border-2-transparent rounded-lg font-bold text-white bg-yellow-500 shadow-mine hover:scale-115 active:scale-90 duration-300" onClick={() => setDelIndex(null)}>Back</button>
                 </section>
             </main>
