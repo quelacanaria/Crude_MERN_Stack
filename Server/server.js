@@ -11,7 +11,7 @@ connectToDb();
 //middleware -> express.json()
 app.use(express.json());
 
-app.use(cors());
+app.use(cors({origin: 'https://my-frontend-7rll.onrender.com'}));
 
 //routes here
 app.use("/api/books", bookRoutes);
