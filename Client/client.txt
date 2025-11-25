@@ -1,0 +1,4 @@
+npm install axios
+npm tailwindcss @tailwindcss/vite
+npm install react-router-dom
+npm install bootstrap
