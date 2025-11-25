@@ -1,0 +1,23 @@
+
+1. npm i nodemon --save-dev
+2. npm i express@next
+
+2. goto package.json goto scripts add "dev": "nodemon server.js"
+3. npm run dev in terminal
+
+1. server
+2. database
+3. models = defines database structure
+4. routes = connects HTTP requests to controller functions
+5. controllers = handles logic (get, add, update, delete)
+
+
+POST /api/books
+       ↓
+Controller receives data
+       ↓
+Controller calls Book model → Book.create(req.body)
+       ↓
+Database stores book
+       ↓
+Controller sends response to client
