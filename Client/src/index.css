@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme{
+  --breakpoint-*: initial;
+  --breakpoint-xs-: 0px;
+  --color-twitter-blue: #1DA1F2;
+  --color-orange-500: #ffa500;
+  --shadow-mine: 3px 3px 5px hsla(0, 0%, 0%, .2);
+  --text-1rem-: 1rem;
+  --width-95: 95%;
+  --color-me-100: rgba(0,0,0,0.5);
+  --spacing: 0;
+}
