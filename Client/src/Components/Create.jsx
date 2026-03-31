@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from "react-router-dom";
 function Create(){
     // const url = 'http://localhost:3000';
-    const url = 'https://my-backend-j2qc.onrender.com';
+    const url = 'https://crude-mern-stack.vercel.app';
     const [createdMessage, setCreatedMessage] = useState([]);
     const [showDisplay, setShowDisplay] = useState('hidden');
     const [addProducts, setAddProducts] = useState({

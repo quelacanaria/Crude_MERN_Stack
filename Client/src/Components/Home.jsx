@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 function Home(){
     // const url = 'http://localhost:3000';
-    const url = 'https://my-backend-j2qc.onrender.com';
+    const url = 'https://crude-mern-stack.vercel.app';
     const [deletedMessage, setDeletedMessage] = useState([]);
     const [showDisplay, setShowDisplay] = useState('hidden');
     const [delIndex, setDelIndex] = useState(null);

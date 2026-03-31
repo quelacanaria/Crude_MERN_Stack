@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 function Read(){
     // const url = 'http://localhost:3000'
-    const url = 'https://my-backend-j2qc.onrender.com';
+    const url = 'https://crude-mern-stack.vercel.app';
     const [data, setData] = useState([]);
     const {id} = useParams();
     const getSingleProduct = async() => {

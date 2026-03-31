@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from 'axios'
 function Update(){
     // const url = 'http://localhost:3000';
-    const url = 'https://my-backend-j2qc.onrender.com';
+    const url = 'https://crude-mern-stack.vercel.app';
     const [updatedMessage, setUpdatedMessage] = useState([]);
     const [showDisplay, setShowDisplay] = useState('hidden');
     const navigate = useNavigate();
